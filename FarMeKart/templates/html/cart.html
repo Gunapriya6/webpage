@@ -1,0 +1,25 @@
+{% extends 'html/header.html' %}
+{% block title %}Cart Items{% endblock %}
+{% block content %}
+
+{% for k in e %}
+<div class="container">
+	<h3>FarMeKart</h3>
+	<div class="row pt-3 mt-5 pt-sm-0">
+		
+		<div class="col-lg-3 col-md-4 col-sm-6  mb-grid-gutter ">
+			<div class="card product-card shadow border pb-2"><a class="d-block" href="#quick-view" data-toggle="modal"><img class="card-img-top" src="{{user.vegpro.impf.url}}" alt="Pizza">
+			</a>
+			<div class="card-body pt-1 pb-2">
+				<h3 class="product-title font-size-md"><a href="#quick-view" data-toggle="modal">Farmername</a></h3>
+				<p class="font-size-ms text-muted"> {{k.name}}</p>
+				<div class="d-flex align-items-center justify-content-between">
+					<div class="product-price"><span class="text-accent"> ₹ {{k.price}}</span></div>
+					<button class="btn btn-primary btn-sm" onclick="Addcart{{k.id}}" type="button" data-toggle="toast"data-target="#cart-toast">+<i class="czi-cart font-size-base ml-1"></i></button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endfor %}
+{% endblock%}
